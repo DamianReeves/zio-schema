@@ -27,7 +27,7 @@ trait DynamicValue { self =>
       case (DynamicValue.Enumeration((key, value)), s: Schema.Enum[A]) =>
         s.structure.get(key) match {
           case Some(schema) => value.toTypedValue(schema).asInstanceOf[Either[String, A]]
-          case None         => Left(s"Failed to find case $key in enum $s")
+          case None         => Left(s"Failed to find case $key in enumN $s")
         }
 
       case (DynamicValue.LeftValue(value), Schema.EitherSchema(schema1, _)) =>
